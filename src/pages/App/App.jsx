@@ -5,7 +5,6 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import SchedulerPage from '../SchedulerPage/SchedulerPage';
 import CourseInfoPage from '../CourseInfoPage/CourseInfoPage';
-import ReviewPage from '../ReviewPage/ReviewPage';
 import AccountPage from '../AccountPage/AccountPage';
 
 import NavBar from '../../components/NavBar/NavBar';

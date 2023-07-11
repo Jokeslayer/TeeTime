@@ -1,0 +1,21 @@
+.course-display {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 70vh;
+    width: 90%;
+    border: 1px solid black;
+}
+
+.cover {
+    display: flex;
+    margin: 10px;
+    background-color: black;
+}
+
+#review-section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
