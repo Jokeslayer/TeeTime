@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import './CreateReview.css';
 
 
-export default function ReviewPage() {
+export default function ReviewPage({}) {
     return (
         <div>
             <form id="add-review-form">
