@@ -24,7 +24,11 @@ const reviewSchema = new Schema({
 });
 
 const CourseSchema = new Schema({
-    Name: { type: String, required: true },
+    name: { type: String, required: true },
+    address: {type: String},
+    state: {type: String},
+    price: {type: Number},
+    link: {type: String},
     reviews: [reviewSchema]
   }, {
     timestamps: true,
