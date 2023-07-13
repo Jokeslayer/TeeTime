@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
+const courseSchema = require('./courseSchema');
+
 
 const reservationSchema = new Schema({
     timeSlot: {type: String},
     date: { type: Date },
     cart: { type: Boolean },
+    size: { type: Number},
+    course: [courseSchema],
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User',

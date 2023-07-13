@@ -2,7 +2,6 @@ const Course = require('../../models/course');
 
 module.exports = {
     index,
-
 };
 
 async function index(req, res) {
