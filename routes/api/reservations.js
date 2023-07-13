@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const reserveCtrl = require('../../controllers/api/reservations');
+const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-// GET /api/courses
+
+// GET /api/reservations
 router.get('/', reserveCtrl.index);
 
 // POST /api/reservations

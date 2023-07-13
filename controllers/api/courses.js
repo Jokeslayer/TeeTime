@@ -7,7 +7,6 @@ module.exports = {
 async function index(req, res) {
     const courses = await Course.find({});
 
-    console.log(courses)
     res.json(courses);
 }
 
