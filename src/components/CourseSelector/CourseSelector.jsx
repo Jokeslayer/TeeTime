@@ -1,9 +1,6 @@
 import './CourseSelector.css';
-import { useState, useEffect, useRef } from 'react';
-
 
 export default function CourseSelector({courses, newReservation, handleChange}) {
-
 
     return (
         <div>
@@ -12,7 +9,6 @@ export default function CourseSelector({courses, newReservation, handleChange}) 
               {courses.map((course)=>(
                 <option key={course._id} value={course._id}>{course.name}</option>
               ))}
-              
             </select>
         </div>
     );

@@ -10,7 +10,6 @@ import Footer from '../../components/Footer/Footer';
 import * as coursesAPI from '../../utilities/courses-api';
 import * as reservationsAPI from '../../utilities/reservations-api';
 
-
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {

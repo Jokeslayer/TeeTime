@@ -46,25 +46,25 @@ export default function SchedulerPage({ courses, reservations, setReservations }
             <h1>SchedulerPage</h1>
             <form className='reserve' onSubmit={handleAddReservation}>
                 <CourseSelector courses={courses} newReservation={newReservation} handleChange={handleChange} />
-                {/* <PlayerNum /> */}
-                {/* <RoundSizeBar /> */}
+                <PlayerNum newReservation={newReservation} handleChange={handleChange} />
+                <RoundSizeBar newReservation={newReservation} handleChange={handleChange} />
                 <label>time :</label>
-                <input
+                {/* <input
                     name="timeSlot"
                     type="time"
                     value={newReservation.time}
                     onChange={handleChange}
                     placeholder="time"
                     required
-                />
-                <label>Date:</label>
+                /> */}
+                {/* <label>Date:</label>
                 <input
                     name="date"
                     type="date"
                     value={newReservation.date}
                     onChange={handleChange}
                     required
-                />
+                /> */}
 
                 <label>Size</label>
                 <input
@@ -75,6 +75,7 @@ export default function SchedulerPage({ courses, reservations, setReservations }
                     placeholder="1"
                     required
                 />
+
                 <label>Length</label>
                 <select name="length" value={newReservation.roundLength} onChange={handleChange}>
                     <option>9</option>

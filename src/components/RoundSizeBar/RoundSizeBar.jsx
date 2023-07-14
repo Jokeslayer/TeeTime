@@ -1,6 +1,6 @@
 import './RoundSizeBar.css';
 
-export default function RoundSizeBar() {
+export default function RoundSizeBar({ newReservation, handleChange }) {
     return (
         <div>
             <h1>Holes Selection</h1>
