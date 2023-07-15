@@ -18,7 +18,7 @@ export default function AccountPage({user, reservations}) {
     // }, [])
 
     return (
-        <div>
+        <div className='page'>
             <h1>AccountPage</h1>
             
             <ReservationList reservations={reservations} user={user}/>

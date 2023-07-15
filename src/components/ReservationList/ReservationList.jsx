@@ -1,7 +1,7 @@
 import './ReservationList.css';
 import Reservation from '../Reservation/Reservation';
 
-export default function ReservationList({ reservations }, { user }) {
+export default function ReservationList({ reservations, user }) {
     return (
         <div>
             <h1>ReservationList</h1>
@@ -15,6 +15,7 @@ export default function ReservationList({ reservations }, { user }) {
                         <th>Size</th>
                         <th>Round Size</th>
                         <th>Price</th>
+                        <th>Add Review</th>
                     </tr>
                 </thead>
                 <tbody>

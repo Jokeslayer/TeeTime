@@ -14,8 +14,6 @@ async function create(req, res) {
   
     const reservation = await Reservation.create(req.body);
 
-
-
     console.log(reservation)
     res.json(reservation);
 }
@@ -26,7 +24,7 @@ async function index(req, res) {
     res.json(reservations);
 }
 
-function deleteReserve(req, res) {
-    Reservation.deleteOne(req.params.id);
-    res.redirect('/scheduler');
+async function deleteReserve(req, res) {
+    const trash = await Reservation.findOneAndDelete({_id: req.body._id});
+    res.json(trash);
   }

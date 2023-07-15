@@ -6,10 +6,7 @@ import CreateReview from '../../pages/CreateReview/CreateReview.jsx'
 export default function Reservation(reserve) {
     return (
         <div>
-            <Routes>
-                <Route path="/createReview" element={<CreateReview />} />
 
-            </Routes>
             <>
             <tr>
                 <td>
@@ -30,8 +27,10 @@ export default function Reservation(reserve) {
                 <td>
                     {reserve.price}
                 </td>
+                <td>
+                 <button><Link to="/createReview">Write a Review</Link></button>
+                </td>
             </tr>
-            <button><Link to="/createReview">Write a Review</Link></button>
             </>
         </div>
     );

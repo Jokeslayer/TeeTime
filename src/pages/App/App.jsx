@@ -5,6 +5,7 @@ import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import SchedulerPage from '../SchedulerPage/SchedulerPage';
 import CourseInfoPage from '../CourseInfoPage/CourseInfoPage';
+import CreateReview from '../CreateReview/CreateReview';
 import AccountPage from '../AccountPage/AccountPage';
 import Footer from '../../components/Footer/Footer';
 import * as coursesAPI from '../../utilities/courses-api';
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="/courses" element={<CourseInfoPage courses={courses} />} />
             <Route path="/scheduler" element={<SchedulerPage courses={courses} reservations={reservations} setReservations={setReservations} />} />
             <Route path="/account" element={<AccountPage user={user} reservations={reservations}/>} />
+            <Route path="/createReview" element={<CreateReview />} />
           </Routes>
           <Footer />
         </>
