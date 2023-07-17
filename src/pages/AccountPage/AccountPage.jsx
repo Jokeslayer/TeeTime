@@ -5,7 +5,7 @@ import ReservationList from '../../components/ReservationList/ReservationList';
 import * as coursesAPI from '../../utilities/courses-api';
 import * as reservationsAPI from '../../utilities/reservations-api';
 
-export default function AccountPage({user, reservations}) {
+export default function AccountPage({user, reservations, setReservations}) {
 
 
     // useEffect(function () {
@@ -20,7 +20,7 @@ export default function AccountPage({user, reservations}) {
     return (
         <div className='page'>
             <h1>AccountPage</h1>
-            <ReservationList reservations={reservations} user={user}/>
+            <ReservationList reservations={reservations} user={user} setReservations={setReservations}/>
         </div>
     );
 }

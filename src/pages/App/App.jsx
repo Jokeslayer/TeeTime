@@ -43,7 +43,7 @@ export default function App() {
             {/* Route components in here */}
             <Route path="/courses" element={<CourseInfoPage courses={courses} />} />
             <Route path="/scheduler" element={<SchedulerPage courses={courses} reservations={reservations} setReservations={setReservations} />} />
-            <Route path="/account" element={<AccountPage user={user} reservations={reservations}/>} />
+            <Route path="/account" element={<AccountPage user={user} reservations={reservations} setReservations={setReservations}/>} />
             <Route path="/createReview" element={<CreateReview />} />
           </Routes>
           <Footer />

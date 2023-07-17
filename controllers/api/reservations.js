@@ -1,3 +1,4 @@
+const reservation = require('../../models/reservation');
 const Reservation = require('../../models/reservation');
 
 module.exports = {
@@ -19,12 +20,13 @@ async function create(req, res) {
 }
 
 async function index(req, res) {
-    const reservations = await Reservation.find({});
-    //console.log(reservations)
+    const reservations = await Reservation.find({user: req.user._id}).populate('course');
+    console.log(reservations)
     res.json(reservations);
 }
 
 async function deleteReserve(req, res) {
-    const trash = await Reservation.findOneAndDelete({_id: req.body._id});
-    res.json(trash);
+    await Reservation.findOneAndDelete({_id: req.body._id});
+    const reservations = await Reservation.find({ user: req.user._id }).populate('course');
+    res.json(reservations);
   }

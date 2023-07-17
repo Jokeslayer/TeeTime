@@ -1,7 +1,7 @@
 import './ReservationList.css';
 import Reservation from '../Reservation/Reservation';
 
-export default function ReservationList({ reservations, user }) {
+export default function ReservationList({ reservations, setReservations, user }) {
     return (
         <div>
 
@@ -19,9 +19,7 @@ export default function ReservationList({ reservations, user }) {
                 </thead>
                 <tbody>
                     {reservations.map((reservation) => (
-
-                            <Reservation reserve = {reservation} />
-    
+                            <Reservation reserve={reservation} setReservations={setReservations} />
                     ))}
                 </tbody>
             </table>

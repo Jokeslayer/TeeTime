@@ -3,7 +3,7 @@ import './CreateReview.css';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function CreateReview({ handleAddReview }) {
+export default function CreateReview({ reservation, handleAddReview }) {
   const navigate = useNavigate();
   const [newReview, setNewReview] = useState({
     content: ''

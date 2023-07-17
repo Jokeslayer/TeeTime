@@ -12,5 +12,7 @@ export async function getAll() {
 }
 
 export async function deleteReserve(reservation) {
-    return sendRequest(BASE_URL, 'DELETE', reservation);
+    const trash = await sendRequest(`${BASE_URL}/${reservation._id}`, 'DELETE', reservation);
+    console.log(trash)
+    return trash;
 }

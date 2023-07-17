@@ -9,10 +9,13 @@ const reservationSchema = new Schema({
     date: { type: Date },
     cart: { type: Boolean },
     size: { type: Number},
-    course: [courseSchema.name],
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User',
+    },
+    course: {
+      type: Schema.Types.ObjectId,
+      ref: 'Course',
     },
     userName: String,
     userAvatar: String,

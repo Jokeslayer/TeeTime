@@ -18,6 +18,7 @@ const reviewSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
+  date: { type: Date },
   userName: String,
   userAvatar: String
 }, {
