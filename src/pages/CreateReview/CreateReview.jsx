@@ -23,13 +23,11 @@ export default function CreateReview({ handleAddReview }) {
   }
 
   return (
-    <div>
-      <div>
+      <div className='page'>
         <form id="add-note-form" onSubmit={handleSubmit}>
           <textarea name="content" value={newReview.content} onChange={handleChange}></textarea>
           <input type="submit" value="Add Review" />
         </form>
       </div>
-    </div >
   );
 }

@@ -42,7 +42,7 @@ export default function SchedulerPage({ courses, reservations, setReservations }
     }
 
     return (
-        <div>
+        <div className='page'>
             <h1>SchedulerPage</h1>
             <form className='reserve' onSubmit={handleAddReservation}>
                 <CourseSelector courses={courses} newReservation={newReservation} handleChange={handleChange} />

@@ -4,7 +4,6 @@ import Reservation from '../Reservation/Reservation';
 export default function ReservationList({ reservations, user }) {
     return (
         <div>
-            <h1>ReservationList</h1>
 
             <table class="list">
                 <thead>
@@ -20,8 +19,9 @@ export default function ReservationList({ reservations, user }) {
                 </thead>
                 <tbody>
                     {reservations.map((reservation) => (
-                        // if({user}==)
-                        <Reservation reserve = {reservation} />
+
+                            <Reservation reserve = {reservation} />
+    
                     ))}
                 </tbody>
             </table>
