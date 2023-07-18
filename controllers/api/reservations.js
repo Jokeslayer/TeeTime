@@ -14,19 +14,15 @@ async function create(req, res) {
     req.body.userAvatar = req.user.avatar;
   
     const reservation = await Reservation.create(req.body);
-
-    console.log(reservation)
     res.json(reservation);
 }
 
 async function index(req, res) {
     const reservations = await Reservation.find({user: req.user._id}).populate('course');
-    console.log(reservations)
     res.json(reservations);
 }
 
 async function deleteReserve(req, res) {
     await Reservation.findOneAndDelete({_id: req.body._id});
-    const reservations = await Reservation.find({ user: req.user._id }).populate('course');
     res.json(reservations);
   }

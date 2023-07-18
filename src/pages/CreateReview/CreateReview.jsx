@@ -3,7 +3,7 @@ import './CreateReview.css';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function CreateReview({ reservation, handleAddReview }) {
+export default function CreateReview({ courses, handleAddReview }) {
   const navigate = useNavigate();
   const [newReview, setNewReview] = useState({
     content: ''
@@ -23,11 +23,13 @@ export default function CreateReview({ reservation, handleAddReview }) {
   }
 
   return (
-      <div className='page'>
-        <form id="add-note-form" onSubmit={handleSubmit}>
-          <textarea name="content" value={newReview.content} onChange={handleChange}></textarea>
-          <input type="submit" value="Add Review" />
-        </form>
-      </div>
+    <div className='page'>
+      <form id="add-note-form" onSubmit={handleSubmit}>
+        <textarea name="content" value={newReview.content} onChange={handleChange}></textarea>
+        <button>
+          <input type="submit" value="Add Reservation" />
+        </button>
+      </form>
+    </div>
   );
 }

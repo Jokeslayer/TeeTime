@@ -11,6 +11,7 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-    const item = await Item.findById(req.params.id);
-    res.json(item);
+    const course = await Course.findById(req.params.id);
+
+    res.json(course);
 }

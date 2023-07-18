@@ -7,10 +7,12 @@ import PlayerNum from '../../components/PlayerNum/PlayerNum';
 import RoundSizeBar from '../../components/RoundSizeBar/RoundSizeBar';
 import TimeSlot from '../../components/TimeSlot/TimeSlot';
 import * as reservationsAPI from '../../utilities/reservations-api';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function SchedulerPage({ courses, reservations, setReservations }) {
+    const navigate=useNavigate();
     const [newReservation, setNewReservation] = useState({
         timeSlot: "",
         date: "",
@@ -39,6 +41,7 @@ export default function SchedulerPage({ courses, reservations, setReservations }
         evt.preventDefault();
         const reservation = await reservationsAPI.create(newReservation);
         setReservations([...reservations, reservation]);
+        navigate('/account')
     }
 
     return (

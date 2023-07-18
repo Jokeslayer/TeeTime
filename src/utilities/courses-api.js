@@ -5,7 +5,8 @@ export async function getAll() {
     return sendRequest(BASE_URL);
 }
 
-export async function getCourse(course) {
-    const myCourse = await sendRequest(`${BASE_URL}/${course._id}`)
+export async function getCourse(id) {
+    const myCourse = await sendRequest(`${BASE_URL}/${id}`)
+    console.log("test",myCourse);
     return myCourse;
 }
