@@ -7,6 +7,17 @@ export async function getAll() {
 
 export async function getCourse(id) {
     const myCourse = await sendRequest(`${BASE_URL}/${id}`)
-    console.log("test",myCourse);
     return myCourse;
+}
+
+export async function addReview(review,id) {
+    return sendRequest(`${BASE_URL}/${id}/reviews`, 'POST', review);
+}
+
+export async function editReview(review) {
+    return sendRequest(BASE_URL, 'PUT', review);
+}
+
+export async function deleteReview(review_id, course_id) {
+    return sendRequest(`${BASE_URL}/${course_id}/reviews/${review_id}`, 'DELETE');
 }

@@ -1,17 +1,12 @@
 import './Reservation.css';
 import * as reservationsAPI from '../../utilities/reservations-api'
-
-
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
-import CreateReview from '../../pages/CreateReview/CreateReview.jsx'
+import { Link } from 'react-router-dom';
 
 export default function Reservation({ reserve, setReservations  }) {
-    const navigate = useNavigate();
 
     async function handleDelete(reservation) {
-        const trash = await reservationsAPI.deleteReserve(reservation);
-        setReservations(trash);
+        const updatedReserves = await reservationsAPI.deleteReserve(reservation);
+        setReservations(updatedReserves);
     }
 
     const date = new Date(reserve.date)
@@ -38,7 +33,7 @@ export default function Reservation({ reserve, setReservations  }) {
                 {reserve.price}
             </td>
             <td>
-                <button><Link to="/createReview">Write a Review</Link></button>
+                <button><Link to={`/createReview/${reserve.course._id}`}>Write a Review</Link></button>
             </td>
             <td>
             <button className='delete' onClick={() => handleDelete(reserve)}>Delete</button>

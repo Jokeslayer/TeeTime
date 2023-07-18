@@ -1,11 +1,21 @@
 import './Review.css';
 
-export default function Review() {
-    return (
-        <div>
-            <h1>Review</h1>
-            
+export default function Review({review, handleDelete}) {
 
-        </div>
+    return (
+        <tr>
+            <td>
+                {review.userName}
+            </td>
+            <td>
+                {review.createdAt}
+            </td>
+            <td>
+                {review.content}
+            </td>
+            <td>
+                <button className='delete' onClick={() => handleDelete(review)}>Delete</button>
+            </td>
+        </tr>
     );
 }

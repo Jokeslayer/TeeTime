@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
@@ -46,7 +46,9 @@ export default function App() {
             <Route path="/courses/:id" element={<CourseInfoPage />} />
             <Route path="/scheduler" element={<SchedulerPage courses={courses} reservations={reservations} setReservations={setReservations} />} />
             <Route path="/account" element={<AccountPage user={user} reservations={reservations} setReservations={setReservations}/>} />
-            <Route path="/createReview" element={<CreateReview courses={courses}/>} />
+            <Route path="/createReview/:id" element={<CreateReview courses={courses}/>} />
+            <Route path="/*" element={<SchedulerPage courses={courses} reservations={reservations} setReservations={setReservations} />} />
+
           </Routes>
           <Footer />
         </>

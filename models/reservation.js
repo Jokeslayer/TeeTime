@@ -18,7 +18,6 @@ const reservationSchema = new Schema({
       ref: 'Course',
     },
     userName: String,
-    userAvatar: String,
     roundLength: {type: Number,
         enum: [9,18],
         default: 18

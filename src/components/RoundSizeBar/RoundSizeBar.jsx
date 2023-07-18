@@ -5,9 +5,9 @@ export default function RoundSizeBar({ newReservation, handleChange }) {
         <div>
             <h1>Holes Selection</h1>
             <select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="" selected>--</option>
+              <option value="9">9</option>
+              <option value="18">18</option>
+              <option defaultValue={""}>--</option>
             </select>
         </div>
     );

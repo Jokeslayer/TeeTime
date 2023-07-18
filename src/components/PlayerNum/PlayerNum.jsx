@@ -4,7 +4,7 @@ export default function PlayerNum({ newReservation, handleChange }) {
     return (
         <div>
             <select name='size' value={newReservation.size} onChange={handleChange} required>
-                <option value="" disabled selected>How many people</option>
+                <option disabled defaultValue={""}>How many people</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

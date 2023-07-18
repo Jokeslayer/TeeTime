@@ -4,8 +4,7 @@ import Reservation from '../Reservation/Reservation';
 export default function ReservationList({ reservations, setReservations, user }) {
     return (
         <div>
-
-            <table class="list">
+            <table className="list">
                 <thead>
                     <tr>
                         <th>Course</th>
@@ -19,7 +18,7 @@ export default function ReservationList({ reservations, setReservations, user })
                 </thead>
                 <tbody>
                     {reservations.map((reservation) => (
-                            <Reservation reserve={reservation} setReservations={setReservations} />
+                        <Reservation key={reservation._id} reserve={reservation} setReservations={setReservations} />
                     ))}
                 </tbody>
             </table>

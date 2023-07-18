@@ -1,34 +1,33 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import './CreateReview.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import * as coursesAPI from '../../utilities/courses-api';
 
 
-export default function CreateReview({ courses, handleAddReview }) {
-  const navigate = useNavigate();
+export default function CreateReview({ courses }) {
+  const navigate=useNavigate();
   const [newReview, setNewReview] = useState({
     content: ''
   });
 
-  async function handleSubmit(evt) {
+  const {id} = useParams();
+
+  async function handleAddReview(evt) {
     evt.preventDefault();
-    handleAddReview(newReview);
-    setNewReview({
-      content: "",
-    });
-    navigate('/CourseInfoPage/:_id');
-  }
+    await coursesAPI.addReview(newReview,id);
+    setNewReview({content: ''});
+    navigate(`/courses/${id}`);
+}
 
   async function handleChange(evt) {
-    setNewReview({ [evt.target.content]: evt.target.value });
+    setNewReview({...newReview, [evt.target.name]: evt.target.value });
   }
 
   return (
     <div className='page'>
-      <form id="add-note-form" onSubmit={handleSubmit}>
+      <form id="add-note-form" onSubmit={handleAddReview}>
         <textarea name="content" value={newReview.content} onChange={handleChange}></textarea>
-        <button>
-          <input type="submit" value="Add Reservation" />
-        </button>
+        <button type="submit">Add Review</button>
       </form>
     </div>
   );

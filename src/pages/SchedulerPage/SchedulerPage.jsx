@@ -12,14 +12,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function SchedulerPage({ courses, reservations, setReservations }) {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const [newReservation, setNewReservation] = useState({
         timeSlot: "",
         date: "",
         cart: false,
         size: 1,
         roundLength: 18,
-        
     });
 
     //update the state of properties of the new reservation object submitted by form
@@ -27,12 +26,12 @@ export default function SchedulerPage({ courses, reservations, setReservations }
         // Replace with new object and use a computed property
         // to update the correct property
 
-        const {name,value,type,checked} = evt.target
-        const inputVal = type === 'checkbox'? checked : value;
+        const { name, value, type, checked } = evt.target
+        const inputVal = type === 'checkbox' ? checked : value;
 
-        setNewReservation((prevReservation)=>({
+        setNewReservation((prevReservation) => ({
             ...prevReservation,
-            [name]:inputVal
+            [name]: inputVal
         }));
     }
 
@@ -48,57 +47,57 @@ export default function SchedulerPage({ courses, reservations, setReservations }
         <div className='scheduler'>
             {/* <h1>SchedulerPage</h1> */}
 
-        <div className='planner'>
-            <form className='reserve' onSubmit={handleAddReservation}>
-                <CourseSelector courses={courses} newReservation={newReservation} handleChange={handleChange} />
-                <PlayerNum newReservation={newReservation} handleChange={handleChange} />
-                <RoundSizeBar newReservation={newReservation} handleChange={handleChange} />
-                
-                <input
-                name="timeSlot"
-                type="time"
-                value={newReservation.timeSlot}
-                onChange={handleChange}
-                required
-                />
+            <div className='planner'>
+                <form className='reserve' onSubmit={handleAddReservation}>
+                    <CourseSelector courses={courses} newReservation={newReservation} handleChange={handleChange} />
+                    <PlayerNum newReservation={newReservation} handleChange={handleChange} />
+                    <RoundSizeBar newReservation={newReservation} handleChange={handleChange} />
 
-                <input
-                name="date"
-                type="date"
-                value={newReservation.date}
-                onChange={handleChange}
-                required
-                />
-                <label>Date:</label>
-
-                <label>cart:</label>
-                <input
-                    name="cart"
-                    type="checkbox"
-                    value={newReservation.cart}
-                    onChange={handleChange}
-                    required
+                    <input
+                        name="timeSlot"
+                        type="time"
+                        value={newReservation.timeSlot}
+                        onChange={handleChange}
+                        required
                     />
-                <button>
-                    <input type="submit" value="Add Reservation" />
-                </button>
 
-                {/* <Calendar onChange={onChange} value={value} /> */}
-            </form>
-            <div>
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
+                    <input
+                        name="date"
+                        type="date"
+                        value={newReservation.date}
+                        onChange={handleChange}
+                        required
+                    />
+                    <label>Date:</label>
+
+                    <label>cart:</label>
+                    <input
+                        name="cart"
+                        type="checkbox"
+                        value={newReservation.cart}
+                        onChange={handleChange}
+                        required
+                    />
+                    <button>
+                        <input type="submit" value="Add Reservation" />
+                    </button>
+
+                    {/* <Calendar onChange={onChange} value={value} /> */}
+                </form>
+                <div>
+                    <TimeSlot />
+                    <TimeSlot />
+                    <TimeSlot />
+                    <TimeSlot />
+                    <TimeSlot />
+                    <TimeSlot />
+                    <TimeSlot />
+                    <TimeSlot />
+                    <TimeSlot />
+                </div>
+
+
             </div>
-
-
         </div>
-            </div>
     );
 }
