@@ -2,7 +2,7 @@ import './PlayerNum.css';
 
 export default function PlayerNum({ newReservation, handleChange }) {
     return (
-        <div>
+        <div className='party'>
             <select name='size' value={newReservation.size} onChange={handleChange} required>
                 <option disabled defaultValue={""}>How many people</option>
                 <option value="1">1</option>

@@ -10,3 +10,18 @@
     display:flex ;
     flex-wrap: wrap;
 }
+
+.form-style{
+    padding: 20px;
+    background-color: white;
+    height: 100%;
+}
+
+.times{
+    padding: 50px;
+}
+
+.checker{
+    width: 40px;
+    height: 40px;
+}

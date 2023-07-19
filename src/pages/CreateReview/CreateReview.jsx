@@ -26,8 +26,8 @@ export default function CreateReview({ courses }) {
   return (
     <div className='page'>
       <form id="add-note-form" onSubmit={handleAddReview}>
-        <textarea name="content" value={newReview.content} onChange={handleChange}></textarea>
-        <button type="submit">Add Review</button>
+        <textarea className='form-text' name="content" value={newReview.content} onChange={handleChange}></textarea>
+        <button className='adder' type="submit">Add Review</button>
       </form>
     </div>
   );

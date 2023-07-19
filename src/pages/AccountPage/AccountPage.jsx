@@ -20,6 +20,7 @@ export default function AccountPage({user, reservations, setReservations}) {
     return (
         <div className='page'>
             <h1>AccountPage</h1>
+            <br/>
             <ReservationList reservations={reservations} user={user} setReservations={setReservations}/>
         </div>
     );

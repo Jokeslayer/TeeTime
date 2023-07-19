@@ -10,9 +10,6 @@
   --text-dark: #615954;
 }
 
-*, *:before, *:after {
-  box-sizing: border-box;
-}
 
 body {
   margin: 0;
@@ -23,7 +20,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--tan-4);
   padding: 2vmin;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 code {
@@ -31,10 +29,6 @@ code {
     monospace;
 }
 
-#root {
-  height: 100%;
-  width: 100%;
-}
 
 .align-ctr {
   text-align: center;

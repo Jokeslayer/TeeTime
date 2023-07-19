@@ -1,0 +1,9 @@
+footer {
+    padding: 10px 20px;
+    background: #666;
+    color: grey;
+  }
+
+.footer-text{
+    color: white;
+}

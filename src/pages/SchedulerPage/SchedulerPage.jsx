@@ -48,55 +48,77 @@ export default function SchedulerPage({ courses, reservations, setReservations }
             {/* <h1>SchedulerPage</h1> */}
 
             <div className='planner'>
-                <form className='reserve' onSubmit={handleAddReservation}>
-                    <CourseSelector courses={courses} newReservation={newReservation} handleChange={handleChange} />
-                    <PlayerNum newReservation={newReservation} handleChange={handleChange} />
-                    <RoundSizeBar newReservation={newReservation} handleChange={handleChange} />
+                <form className='form-style' onSubmit={handleAddReservation}>
+                    <div>
+                        Please select a course
+                        <CourseSelector courses={courses} newReservation={newReservation} handleChange={handleChange} />
+                    </div>
+                        <br />
+                    <div>
+                        how many guests will you be bringing?
+                        <PlayerNum newReservation={newReservation} handleChange={handleChange} />
+                    </div>
+                        <br />
+                    <div>
+                        Full/Half round
+                        <RoundSizeBar newReservation={newReservation} handleChange={handleChange} />
+                    </div>
+                        <br />
+                    <div>
+                        <label>Timeslot:</label>
+                        <input
+                            name="timeSlot"
+                            type="time"
+                            value={newReservation.timeSlot}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
 
-                    <input
-                        name="timeSlot"
-                        type="time"
-                        value={newReservation.timeSlot}
-                        onChange={handleChange}
-                        required
-                    />
+                    <br />
+                    <div>
+                        <label>Date:</label>
+                        <input
+                            name="date"
+                            type="date"
+                            value={newReservation.date}
+                            onChange={handleChange}
+                            required
+                        />
 
+                    </div>
+                    <br />
+                    <div>
+                        Would you like a cart?
+                        <br/>
                     <input
-                        name="date"
-                        type="date"
-                        value={newReservation.date}
-                        onChange={handleChange}
-                        required
-                    />
-                    <label>Date:</label>
-
-                    <label>cart:</label>
-                    <input
+                        className="checker"
                         name="cart"
                         type="checkbox"
                         value={newReservation.cart}
                         onChange={handleChange}
                         required
                     />
+                    </div>
+                    <br />
                     <button>
                         <input type="submit" value="Add Reservation" />
                     </button>
 
                     {/* <Calendar onChange={onChange} value={value} /> */}
                 </form>
-                <div>
-                    <TimeSlot />
-                    <TimeSlot />
-                    <TimeSlot />
-                    <TimeSlot />
-                    <TimeSlot />
-                    <TimeSlot />
-                    <TimeSlot />
-                    <TimeSlot />
-                    <TimeSlot />
-                </div>
-
-
+            </div>
+            <div className='times'>
+                
+                <TimeSlot />
+                <TimeSlot />
+                <TimeSlot />
+                <TimeSlot />
+                <TimeSlot />
+                <TimeSlot />
+                <TimeSlot />
+                <TimeSlot />
+                <TimeSlot />
             </div>
         </div>
     );
