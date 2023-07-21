@@ -33,7 +33,7 @@ export default function Reservation({ reserve, setReservations  }) {
                 {reserve.price}
             </td>
             <td>
-                <button><Link to={`/createReview/${reserve.course._id}`}>Write a Review</Link></button>
+                <button><Link to={`/createReview/${reserve.course}`}>Write a Review</Link></button>
             </td>
             <td>
             <button className='delete' onClick={() => handleDelete(reserve)}>Delete</button>
