@@ -2,7 +2,7 @@ import './Reservation.css';
 import * as reservationsAPI from '../../utilities/reservations-api'
 import { Link } from 'react-router-dom';
 
-export default function Reservation({ reserve, setReservations  }) {
+export default function Reservation({ reserve, setReservations }) {
 
     async function handleDelete(reservation) {
         const updatedReserves = await reservationsAPI.deleteReserve(reservation);
@@ -11,11 +11,11 @@ export default function Reservation({ reserve, setReservations  }) {
 
     const date = new Date(reserve.date)
     const teetime = date.toLocaleDateString();
-    
+    //console.log("this is the reservation component",reserve)
     return (
         <tr>
             <td>
-                {reserve.course.name}
+                {reserve.course}
             </td>
             <td>
                 {teetime}

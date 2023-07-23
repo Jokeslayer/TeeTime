@@ -7,7 +7,7 @@ import golf from '../../images/golf.jpg'; // Tell webpack this JS file uses this
 
 
 
-export default function CourseInfoPage( user) {
+export default function CourseInfoPage( {user}) {
     const [course, setCourse] = useState();
     let { id } = useParams();
     useEffect(function () {

@@ -1,7 +1,10 @@
 import './Review.css';
 
 export default function Review({ user, review, handleDelete}) {
-    if(user === review.user){
+    console.log("Passed user:", user._id)
+    console.log("review user:", review)
+
+    if(user._id === review.user){
         return (
             <tr>
                 <td>

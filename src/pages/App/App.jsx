@@ -35,6 +35,14 @@ export default function App() {
     getReservations();
   }, [])
 
+  useEffect(function () {
+    async function getMyReservations() {
+      const reservations = await reservationsAPI.getDetails();
+      setReservations(reservations);
+    }
+    getMyReservations();
+  }, [])
+
   return (
     <main className="App">
       {user ?
@@ -45,7 +53,7 @@ export default function App() {
             <Route path="/courses" element={<CourseListPage courses={courses} />} />
             <Route path="/courses/:id" element={<CourseInfoPage user={user} />} />
             <Route path="/scheduler" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} />} />
-            <Route path="/account/:id" element={<AccountPage user={user} />} />
+            <Route path="/account/:id" element={<AccountPage user={user} reservations={reservations} />} />
             <Route path="/createReview/:id" element={<CreateReview courses={courses}/>} />
             <Route path="/*" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} />} />
 
