@@ -27,7 +27,13 @@ async function show(req, res) {
 }
 
 async function deleteReserve(req, res) {
-    await Reservation.findOneAndDelete({_id: req.body._id});
-    const reservations = await Reservation.find({user: req.user._id}).populate('course');
-    res.json(reservations);
+    try{
+        await Reservation.findOneAndDelete({_id: req.body._id});
+        const reservations = await Reservation.find({user: req.user._id}).populate('course');
+        res.json(reservations);
+    }
+    catch (err) {
+        console.log(err);
+    }
+
   }

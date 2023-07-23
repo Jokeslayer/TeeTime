@@ -43,7 +43,7 @@ export default function App() {
           <Routes>
             {/* Route components in here */}
             <Route path="/courses" element={<CourseListPage courses={courses} />} />
-            <Route path="/courses/:id" element={<CourseInfoPage />} />
+            <Route path="/courses/:id" element={<CourseInfoPage user={user} />} />
             <Route path="/scheduler" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} />} />
             <Route path="/account/:id" element={<AccountPage user={user} />} />
             <Route path="/createReview/:id" element={<CreateReview courses={courses}/>} />

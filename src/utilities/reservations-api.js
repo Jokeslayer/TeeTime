@@ -14,9 +14,7 @@ export async function getDetails(id) {
     return sendRequest(`${BASE_URL}/${id}`);
 }
 
-
 export async function deleteReserve(reservation) {
     const trash = await sendRequest(`${BASE_URL}/${reservation._id}`, 'DELETE', reservation);
-    console.log(trash)
     return trash;
 }

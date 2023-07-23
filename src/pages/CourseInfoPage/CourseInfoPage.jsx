@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import './CourseInfoPage.css';
+import { useParams } from 'react-router-dom';
 import ReviewList from '../../components/ReviewList/ReviewList';
 import * as coursesAPI from '../../utilities/courses-api';
+import './CourseInfoPage.css';
+import golf from '../../images/golf.jpg'; // Tell webpack this JS file uses this image
 
-import { useParams } from 'react-router-dom';
 
 
-export default function CourseInfoPage() {
+export default function CourseInfoPage( user) {
     const [course, setCourse] = useState();
     let { id } = useParams();
     useEffect(function () {
@@ -28,13 +29,13 @@ export default function CourseInfoPage() {
     return (
         <div className="course-display">
             <div>
-                <img className='course-box' src="https://images.squarespace-cdn.com/content/v1/5dfa8eb7d89abc3b6a4300a1/e1f1bd03-f1fb-4997-9b02-0858db9d60a5/Pocono-Manor-Golf-3.jpg?format=2500w"></img>
+                <img className='course-box' src={golf} alt='golf'></img>
                 <h1>{course.name}</h1>
                 <h3>{course.address}, {course.state}, ${course.price}</h3>
 
             </div>
             <div className="review-section">
-                <ReviewList course={course} handleDelete={handleDelete} />
+                <ReviewList user={user} course={course} handleDelete={handleDelete} />
             </div>
         </div>
     );

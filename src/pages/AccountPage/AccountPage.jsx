@@ -16,7 +16,7 @@ export default function AccountPage({ user }) {
             setReservations(myReservations);
         }
         getReservations();
-    }, [])
+    }, [id])
     
     console.log(reservations);
     return (

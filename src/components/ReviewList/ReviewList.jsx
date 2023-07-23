@@ -1,7 +1,7 @@
 import './ReviewList';
 import Review from '../Review/Review';
 
-export default function ReviewList({ course, handleDelete }) {
+export default function ReviewList({ user, course, handleDelete }) {
     return (
         <div>
             <table className="list">
@@ -13,7 +13,7 @@ export default function ReviewList({ course, handleDelete }) {
                 </tr>
                 <tbody>
                     {course.reviews.map((review) => (
-                        <Review key={review._id} review={review} handleDelete={handleDelete} />
+                        <Review key={review._id} user={user} review={review} handleDelete={handleDelete} />
                     ))}
                 </tbody>
             </table>

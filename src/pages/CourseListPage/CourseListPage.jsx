@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import './CourseListPage.css'
+import golf from '../../images/golf.jpg'; // Tell webpack this JS file uses this image
+
 
 export default function CourseListPage({ courses }) {
     return (
@@ -7,7 +9,7 @@ export default function CourseListPage({ courses }) {
             {courses.map((course) => (
                 <div key={course._id}>
                     <div>
-                    <img style={{ maxWidth: '30vw' }} src="https://images.squarespace-cdn.com/content/v1/5dfa8eb7d89abc3b6a4300a1/e1f1bd03-f1fb-4997-9b02-0858db9d60a5/Pocono-Manor-Golf-3.jpg?format=2500w"></img>
+                    <img style={{ maxWidth: '30vw' }} src={golf} alt="golf"></img>
                     <article>
                         <Link to={`/courses/${course._id}`}><h1>{course.name}</h1></Link>
                         <h3>{course.address}</h3>
