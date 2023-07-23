@@ -2,7 +2,7 @@ import './ReservationList.css';
 import Reservation from '../Reservation/Reservation';
 
 
-export default function ReservationList({ user, myReservations, setMyReservations }) {
+export default function ReservationList({ myReservations, setMyReservations }) {
     console.log("I hope this works", myReservations)
 
     return (

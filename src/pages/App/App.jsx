@@ -17,7 +17,6 @@ import NavBar from '../../components/NavBar/NavBar';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [courses, setCourses] = useState([]);
-  const [reservations, setReservations] = useState([]);
   const [myReservations, setMyReservations] = useState([]);
 
   useEffect(function () {
@@ -26,13 +25,6 @@ export default function App() {
       setCourses(courses);
     }
     getCourses();
-  }, [])
-
-  useEffect(function () {
-    async function getReservations() {
-      setReservations(reservations);
-    }
-    getReservations();
   }, [])
 
   useEffect(function () {
@@ -54,10 +46,10 @@ export default function App() {
             {/* Route components in here */}
             <Route path="/courses" element={<CourseListPage courses={courses} />} />
             <Route path="/courses/:id" element={<CourseInfoPage user={user} />} />
-            <Route path="/scheduler" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} myReservations={myReservations} setMyReservations={setMyReservations} />} />
+            <Route path="/scheduler" element={<SchedulerPage user={user} courses={courses} myReservations={myReservations} setMyReservations={setMyReservations} />} />
             <Route path="/account/:id" element={<AccountPage user={user} myReservations={myReservations} setMyReservations={setMyReservations}/>} />
             <Route path="/createReview/:id" element={<CreateReview courses={courses}/>} />
-            <Route path="/*" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} myReservations={myReservations} setMyReservations={setMyReservations} />} />
+            <Route path="/*" element={<SchedulerPage user={user} courses={courses} myReservations={myReservations} setMyReservations={setMyReservations} />} />
 
           </Routes>
           <Footer />

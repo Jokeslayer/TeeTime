@@ -10,7 +10,8 @@ import * as reservationsAPI from '../../utilities/reservations-api';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function SchedulerPage({ user, courses, reservations, setReservations, myReservations, setMyReservations }) {
+export default function SchedulerPage({ user, courses, myReservations, setMyReservations }) {
+    //console.log(courses)
     const navigate = useNavigate();
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [newReservation, setNewReservation] = useState({
@@ -34,22 +35,27 @@ export default function SchedulerPage({ user, courses, reservations, setReservat
             ...prevReservation,
             [name]: inputVal
         }));
+        
+
     }
 
     //sends the post request adding the new reservation object to the db
     async function handleAddReservation(evt) {
         evt.preventDefault();
-        
-        const reservation = await reservationsAPI.create(newReservation,);
-        setReservations([...reservations, reservation]);
+
+        const reservation = await reservationsAPI.create(newReservation);
         setMyReservations([...myReservations, reservation])
         navigate(`/account/${user._id}`)
     }
-    
+
     function handleCourse(evt) {
         setSelectedIndex(evt.target.options.selectedIndex);
+        console.log(selectedIndex)
         newReservation.course = courses[selectedIndex];
+        console.log(newReservation.course.name)
+
     }
+
 
     return (
         <div className='scheduler'>
