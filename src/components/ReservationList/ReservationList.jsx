@@ -1,8 +1,7 @@
 import './ReservationList.css';
 import Reservation from '../Reservation/Reservation';
 
-export default function ReservationList({ myReservations, setReservations}) {
-    //console.log("this is supposed to be only 1 user", myReservations);
+export default function ReservationList({ myReservations, setMyReservations}) {
 
     return (
         <div>
@@ -20,7 +19,7 @@ export default function ReservationList({ myReservations, setReservations}) {
                 </thead>
                 <tbody>
                     {myReservations.map((reservation) => (
-                        <Reservation key={reservation._id} reserve={reservation} setReservations={setReservations} />
+                        <Reservation key={reservation._id} reserve={reservation} setMyReservations={setMyReservations} />
                     ))}
                 </tbody>
             </table>

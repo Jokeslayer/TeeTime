@@ -18,6 +18,7 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [courses, setCourses] = useState([]);
   const [reservations, setReservations] = useState([]);
+  const [myReservations, setMyReservations] = useState([]);
 
   useEffect(function () {
     async function getCourses() {
@@ -37,11 +38,13 @@ export default function App() {
 
   useEffect(function () {
     async function getMyReservations() {
-      const reservations = await reservationsAPI.getDetails();
-      setReservations(reservations);
+      const myReservations = await reservationsAPI.getDetails();
+      setMyReservations(myReservations);
     }
     getMyReservations();
   }, [])
+
+
 
   return (
     <main className="App">
@@ -53,7 +56,7 @@ export default function App() {
             <Route path="/courses" element={<CourseListPage courses={courses} />} />
             <Route path="/courses/:id" element={<CourseInfoPage user={user} />} />
             <Route path="/scheduler" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} />} />
-            <Route path="/account/:id" element={<AccountPage user={user} reservations={reservations} />} />
+            <Route path="/account/:id" element={<AccountPage user={user} reservations={myReservations} setReservations={setMyReservations}/>} />
             <Route path="/createReview/:id" element={<CreateReview courses={courses}/>} />
             <Route path="/*" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} />} />
 
