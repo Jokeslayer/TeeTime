@@ -15,7 +15,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/scheduler">Create TeeTime</Link>
       &nbsp; | &nbsp;
-      <Link to="/account">Your Outings</Link>
+      <Link to={`/account/${user._id}`}>Your Outings</Link>
       &nbsp; | &nbsp;
       &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
     </nav>

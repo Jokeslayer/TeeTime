@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import './CourseListPage.css'
 
 export default function CourseListPage({ courses }) {
@@ -12,7 +11,7 @@ export default function CourseListPage({ courses }) {
                     <article>
                         <Link to={`/courses/${course._id}`}><h1>{course.name}</h1></Link>
                         <h3>{course.address}</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum laudantium dolore delectus doloribus incidunt vel, vitae commodi ipsa voluptate eos at. Optio debitis cumque, fugiat dolorem possimus facere praesentium excepturi.</p>
+                        <p>Is this thing on?</p>
                     </article>
 
                     </div>

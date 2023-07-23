@@ -1,7 +1,7 @@
 import './ReservationList.css';
 import Reservation from '../Reservation/Reservation';
 
-export default function ReservationList({ reservations, setReservations, user }) {
+export default function ReservationList({ reservations, setReservations }) {
     return (
         <div>
             <table className="list">

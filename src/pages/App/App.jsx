@@ -44,10 +44,10 @@ export default function App() {
             {/* Route components in here */}
             <Route path="/courses" element={<CourseListPage courses={courses} />} />
             <Route path="/courses/:id" element={<CourseInfoPage />} />
-            <Route path="/scheduler" element={<SchedulerPage courses={courses} reservations={reservations} setReservations={setReservations} />} />
-            <Route path="/account" element={<AccountPage user={user} reservations={reservations} setReservations={setReservations}/>} />
+            <Route path="/scheduler" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} />} />
+            <Route path="/account/:id" element={<AccountPage user={user} />} />
             <Route path="/createReview/:id" element={<CreateReview courses={courses}/>} />
-            <Route path="/*" element={<SchedulerPage courses={courses} reservations={reservations} setReservations={setReservations} />} />
+            <Route path="/*" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} />} />
 
           </Routes>
           <Footer />

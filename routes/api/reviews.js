@@ -8,10 +8,10 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 router.get('/', reviewCtrl.index);
 
 // POST /api/reservations
-router.post('/', reviewCtrl.create);
+router.post('/', ensureLoggedIn, reviewCtrl.create);
 
 router.delete('/:id', ensureLoggedIn, reviewCtrl.delete);
 
-router.put('/:id', ensureLoggedIn, reviewCtrl.edit);
+// router.put('/:id', ensureLoggedIn, reviewCtrl.edit);
 
 module.exports = router;

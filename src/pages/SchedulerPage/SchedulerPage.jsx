@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export default function SchedulerPage({ courses, reservations, setReservations }) {
+export default function SchedulerPage({ user, courses, reservations, setReservations }) {
     const navigate = useNavigate();
     const [newReservation, setNewReservation] = useState({
         timeSlot: "",
@@ -40,7 +40,7 @@ export default function SchedulerPage({ courses, reservations, setReservations }
         evt.preventDefault();
         const reservation = await reservationsAPI.create(newReservation);
         setReservations([...reservations, reservation]);
-        navigate('/account')
+        navigate(`/account/${user._id}`)
     }
 
     return (
@@ -97,7 +97,6 @@ export default function SchedulerPage({ courses, reservations, setReservations }
                         type="checkbox"
                         value={newReservation.cart}
                         onChange={handleChange}
-                        required
                     />
                     </div>
                     <br />
@@ -108,7 +107,7 @@ export default function SchedulerPage({ courses, reservations, setReservations }
                     {/* <Calendar onChange={onChange} value={value} /> */}
                 </form>
             </div>
-            <div className='times'>
+            {/* <div className='times'>
                 
                 <TimeSlot />
                 <TimeSlot />
@@ -119,7 +118,7 @@ export default function SchedulerPage({ courses, reservations, setReservations }
                 <TimeSlot />
                 <TimeSlot />
                 <TimeSlot />
-            </div>
+            </div> */}
         </div>
     );
 }

@@ -17,9 +17,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Getting Started
 
-<img src="public/images/wire_frame.png"><br>
-<a href="https://trello.com/b/dxwPn2D5/tee-time-scheduler">My Trello Board</a> <br>
-<a href="https://teetime-usa-6d9c475c5cdf.herokuapp.com/">View NOW!</a> <br>
+[Click to View Project Planning]([User Stories, Wireframes, and ERDs](https://trello.com/b/dxwPn2D5/tee-time-scheduler))
+[Click to Visit the Site!]([Heroku Site](https://teetime-usa-6d9c475c5cdf.herokuapp.com/))
 
 # Next Steps
 
