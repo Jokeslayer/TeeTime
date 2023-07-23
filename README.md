@@ -7,10 +7,6 @@ My father is a huge golf fan, and I've seen him use a tee time scheduler before.
 <img src="src/images/planner_screenshot.png">
 <img src="src/images/courseList_screenshot.png">
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Technologies Used
 
 - JavaScript
