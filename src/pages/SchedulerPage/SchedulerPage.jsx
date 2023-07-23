@@ -15,7 +15,7 @@ export default function SchedulerPage({ user, courses, myReservations, setMyRese
     const navigate = useNavigate();
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [newReservation, setNewReservation] = useState({
-        course: undefined,
+        course: courses[selectedIndex],
         timeSlot: "",
         date: "",
         cart: false,
@@ -50,17 +50,14 @@ export default function SchedulerPage({ user, courses, myReservations, setMyRese
 
     function handleCourse(evt) {
         setSelectedIndex(evt.target.options.selectedIndex);
-        console.log(selectedIndex)
-        newReservation.course = courses[selectedIndex];
-        console.log(newReservation.course.name)
+
+        console.log(newReservation)
 
     }
 
 
     return (
         <div className='scheduler'>
-            {/* <h1>SchedulerPage</h1> */}
-
             <div className='planner'>
                 <form className='form-style' onSubmit={handleAddReservation}>
                     <div>
