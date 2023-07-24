@@ -8,12 +8,12 @@ module.exports = {
 };
 
 async function create(req, res) {
-    //let price = 
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
   
     const reservation = await Reservation.create(req.body);
-    res.json(reservation);
+    const newRes = await Reservation.findById(reservation._id).populate('course');
+    res.json(newRes);
 }
 
 async function index(req, res) {
@@ -23,7 +23,6 @@ async function index(req, res) {
 
 async function show(req, res) {
     const reservations = await Reservation.find({user: req.user._id}).populate('course');
-    console.log("all these reservations should be the same")
     res.json(reservations);
 }
 
@@ -36,5 +35,4 @@ async function deleteReserve(req, res) {
     catch (err) {
         console.log(err);
     }
-
   }

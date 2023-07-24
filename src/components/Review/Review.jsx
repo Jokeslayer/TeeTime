@@ -1,8 +1,6 @@
 import './Review.css';
 
 export default function Review({ user, review, handleDelete}) {
-    console.log("Passed user:", user._id)
-    console.log("review user:", review)
 
     if(user._id === review.user){
         return (

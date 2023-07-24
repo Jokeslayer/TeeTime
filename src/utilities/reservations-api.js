@@ -6,10 +6,6 @@ export async function create(reservation) {
     return reserveData;
 }
 
-export async function getAll() {
-    return sendRequest(BASE_URL);
-}
-
 export async function getDetails(id) {
     return sendRequest(`${BASE_URL}/${id}`);
 }

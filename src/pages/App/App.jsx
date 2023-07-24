@@ -30,7 +30,6 @@ export default function App() {
 
   useEffect(function () {
     async function getReservations() {
-      const reservations = await reservationsAPI.getAll();
       setReservations(reservations);
     }
     getReservations();
@@ -55,10 +54,10 @@ export default function App() {
             {/* Route components in here */}
             <Route path="/courses" element={<CourseListPage courses={courses} />} />
             <Route path="/courses/:id" element={<CourseInfoPage user={user} />} />
-            <Route path="/scheduler" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} />} />
-            <Route path="/account/:id" element={<AccountPage user={user} reservations={myReservations} setReservations={setMyReservations}/>} />
+            <Route path="/scheduler" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} myReservations={myReservations} setMyReservations={setMyReservations} />} />
+            <Route path="/account/:id" element={<AccountPage user={user} myReservations={myReservations} setMyReservations={setMyReservations}/>} />
             <Route path="/createReview/:id" element={<CreateReview courses={courses}/>} />
-            <Route path="/*" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} />} />
+            <Route path="/*" element={<SchedulerPage user={user} courses={courses} reservations={reservations} setReservations={setReservations} myReservations={myReservations} setMyReservations={setMyReservations} />} />
 
           </Routes>
           <Footer />

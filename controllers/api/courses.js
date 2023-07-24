@@ -21,7 +21,6 @@ async function show(req, res) {
 async function deleteReview(req, res) {
     try {
         const course = await Course.findById(req.params.courseID);
-        console.log("controler function DeleteReview", req.params.courseID)
         course.reviews.remove(req.params.reviewID);
         // Save the updated book
         const updatedCourse = await course.save();

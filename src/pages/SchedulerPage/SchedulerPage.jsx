@@ -10,15 +10,16 @@ import * as reservationsAPI from '../../utilities/reservations-api';
 import { useNavigate } from 'react-router-dom';
 
 
-
-export default function SchedulerPage({ user, courses, reservations, setReservations }) {
+export default function SchedulerPage({ user, courses, reservations, setReservations, myReservations, setMyReservations }) {
     const navigate = useNavigate();
+    const [selectedIndex, setSelectedIndex] = useState(0);
     const [newReservation, setNewReservation] = useState({
+        course: undefined,
         timeSlot: "",
         date: "",
         cart: false,
         size: 1,
-        roundLength: 18,
+        roundLength: 9,
     });
 
     //update the state of properties of the new reservation object submitted by form
@@ -38,9 +39,16 @@ export default function SchedulerPage({ user, courses, reservations, setReservat
     //sends the post request adding the new reservation object to the db
     async function handleAddReservation(evt) {
         evt.preventDefault();
-        const reservation = await reservationsAPI.create(newReservation);
+        
+        const reservation = await reservationsAPI.create(newReservation,);
         setReservations([...reservations, reservation]);
+        setMyReservations([...myReservations, reservation])
         navigate(`/account/${user._id}`)
+    }
+    
+    function handleCourse(evt) {
+        setSelectedIndex(evt.target.options.selectedIndex);
+        newReservation.course = courses[selectedIndex];
     }
 
     return (
@@ -51,19 +59,23 @@ export default function SchedulerPage({ user, courses, reservations, setReservat
                 <form className='form-style' onSubmit={handleAddReservation}>
                     <div>
                         Please select a course
-                        <CourseSelector courses={courses} newReservation={newReservation} handleChange={handleChange} />
+                        <select name='course' value={newReservation.course} onChange={handleCourse} required>
+                            {courses.map((course) => (
+                                <option key={course._id} value={course._id}>{course.name}</option>
+                            ))}
+                        </select>
                     </div>
-                        <br />
+                    <br />
                     <div>
                         how many guests will you be bringing?
                         <PlayerNum newReservation={newReservation} handleChange={handleChange} />
                     </div>
-                        <br />
+                    <br />
                     <div>
                         Full/Half round
                         <RoundSizeBar newReservation={newReservation} handleChange={handleChange} />
                     </div>
-                        <br />
+                    <br />
                     <div>
                         <label>Timeslot:</label>
                         <input
@@ -74,7 +86,6 @@ export default function SchedulerPage({ user, courses, reservations, setReservat
                             required
                         />
                     </div>
-
                     <br />
                     <div>
                         <label>Date:</label>
@@ -90,14 +101,14 @@ export default function SchedulerPage({ user, courses, reservations, setReservat
                     <br />
                     <div>
                         Would you like a cart?
-                        <br/>
-                    <input
-                        className="checker"
-                        name="cart"
-                        type="checkbox"
-                        value={newReservation.cart}
-                        onChange={handleChange}
-                    />
+                        <br />
+                        <input
+                            className="checker"
+                            name="cart"
+                            type="checkbox"
+                            value={newReservation.cart}
+                            onChange={handleChange}
+                        />
                     </div>
                     <br />
                     <button>
@@ -107,18 +118,6 @@ export default function SchedulerPage({ user, courses, reservations, setReservat
                     {/* <Calendar onChange={onChange} value={value} /> */}
                 </form>
             </div>
-            {/* <div className='times'>
-                
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-                <TimeSlot />
-            </div> */}
         </div>
     );
 }

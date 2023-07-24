@@ -1,7 +1,9 @@
 import './ReservationList.css';
 import Reservation from '../Reservation/Reservation';
 
-export default function ReservationList({ myReservations, setMyReservations}) {
+
+export default function ReservationList({ user, myReservations, setMyReservations }) {
+    console.log("I hope this works", myReservations)
 
     return (
         <div>
@@ -18,8 +20,8 @@ export default function ReservationList({ myReservations, setMyReservations}) {
                     </tr>
                 </thead>
                 <tbody>
-                    {myReservations.map((reservation) => (
-                        <Reservation key={reservation._id} reserve={reservation} setMyReservations={setMyReservations} />
+                    {myReservations.map((reserve) => (
+                        <Reservation key={reserve._id} reserve={reserve} setMyReservations={setMyReservations} />
                     ))}
                 </tbody>
             </table>

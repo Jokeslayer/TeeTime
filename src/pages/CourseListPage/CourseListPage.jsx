@@ -4,6 +4,8 @@ import golf from '../../images/golf.jpg'; // Tell webpack this JS file uses this
 
 
 export default function CourseListPage({ courses }) {
+    console.log('newReservation')
+
     return (
         <div className="course-display">
             {courses.map((course) => (

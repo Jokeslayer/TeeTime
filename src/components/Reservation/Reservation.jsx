@@ -1,21 +1,22 @@
 import './Reservation.css';
-import * as reservationsAPI from '../../utilities/reservations-api'
 import { Link } from 'react-router-dom';
+import * as reservationsAPI from '../../utilities/reservations-api'
 
-export default function Reservation({ reserve, setReservations }) {
 
-    async function handleDelete(reservation) {
-        const updatedReserves = await reservationsAPI.deleteReserve(reservation);
-        setReservations(updatedReserves);
+export default function Reservation({ reserve, setMyReservations }) {
+
+
+    async function handleDelete(reserve) {
+        const updatedReserves = await reservationsAPI.deleteReserve(reserve);
+        setMyReservations(updatedReserves);
     }
 
     const date = new Date(reserve.date)
     const teetime = date.toLocaleDateString();
-    //console.log("this is the reservation component",reserve)
     return (
         <tr>
             <td>
-                {reserve.course}
+                {reserve.course.name}
             </td>
             <td>
                 {teetime}
@@ -33,7 +34,7 @@ export default function Reservation({ reserve, setReservations }) {
                 {reserve.price}
             </td>
             <td>
-                <button><Link to={`/createReview/${reserve.course}`}>Write a Review</Link></button>
+                <button><Link to={`/createReview/${reserve.course._id}`}>Write a Review</Link></button>
             </td>
             <td>
             <button className='delete' onClick={() => handleDelete(reserve)}>Delete</button>
