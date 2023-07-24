@@ -3,7 +3,7 @@ const router = express.Router();
 const reserveCtrl = require('../../controllers/api/reservations');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-router.get('/:id', reserveCtrl.show);
+router.get('/:id', reserveCtrl.index);
 
 // POST /api/reservations
 router.post('/', ensureLoggedIn, reserveCtrl.create);

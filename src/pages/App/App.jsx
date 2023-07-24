@@ -32,8 +32,12 @@ export default function App() {
       const myReservations = await reservationsAPI.getDetails();
       setMyReservations(myReservations);
     }
-    getMyReservations();
-  }, [])
+    if (user) {
+      getMyReservations();
+    } else {
+      setMyReservations([]);  // no logged in user, set to empty array
+    }
+  }, [user]);
 
 
 

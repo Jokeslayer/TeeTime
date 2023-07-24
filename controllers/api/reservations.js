@@ -2,7 +2,7 @@ const Reservation = require('../../models/reservation');
 
 module.exports = {
     create,
-    show,
+    index,
     delete: deleteReserve
 };
 
@@ -15,7 +15,7 @@ async function create(req, res) {
     res.json(newRes);
 }
 
-async function show(req, res) {
+async function index(req, res) {
     const reservations = await Reservation.find({user: req.user._id}).populate('course');
     res.json(reservations);
 }
